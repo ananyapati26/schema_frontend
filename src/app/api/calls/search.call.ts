@@ -1,6 +1,6 @@
 export const schemaService = {
   createSchema: async (prompt: string) => {
-    const response = await fetch('/api/search', {
+    const response = await fetch('http://localhost:5000/api/search', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

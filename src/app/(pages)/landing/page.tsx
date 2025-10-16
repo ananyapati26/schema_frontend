@@ -17,20 +17,18 @@ export default function App() {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>();
-
-   const { mutate } = useCreateSchema();
-
+  const { mutate } = useCreateSchema();
   const onSubmit = (data: FormValues) => {
     mutate(data.idea, {
       onSuccess: () => {
-        router.push('/schema');
+        router.push("/schema");
       },
     });
   };
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-start p-4 md:p-8 relative overflow-hidden font-sans">
-      <div className="absolute inset-0 bg-radial-gradient"></div>
+      {/* <div className="absolute inset-0 bg-radial-gradient"></div> */}
       <div
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[150vw] h-[100vw] rounded-full"
         style={{
@@ -42,15 +40,6 @@ export default function App() {
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-4xl pt-16 md:pt-24">
         <div className="mb-12 md:mb-20">
-          <button className="flex items-center space-x-2 px-4 py-2 bg-slate-800/50 backdrop-filter backdrop-blur-sm rounded-full border border-slate-700 hover:bg-slate-700/50 transition-colors duration-300">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            <span className="text-sm font-medium text-white/90">
-              Introducing Bolt Cloud!
-            </span>
-          </button>
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold text-center mb-4 leading-tight">
