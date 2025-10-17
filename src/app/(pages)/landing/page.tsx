@@ -20,8 +20,9 @@ export default function App() {
   const { mutate } = useCreateSchema();
   const onSubmit = (data: FormValues) => {
     mutate(data.idea, {
-      onSuccess: () => {
-        router.push("/schema");
+      onSuccess: (data) => {
+        console.log("the data is : ",data.output);
+        // router.push("/schema");
       },
     });
   };
@@ -57,9 +58,8 @@ export default function App() {
           <Textarea
             {...register("idea", { required: "Please type your idea." })}
             placeholder="Type your idea and we'll build it together."
-            className={`min-h-[120px] ${
-              errors.idea ? "border-red-500 focus:ring-red-500" : ""
-            }`}
+            className={`min-h-[120px] ${errors.idea ? "border-red-500 focus:ring-red-500" : ""
+              }`}
           />
 
           {errors.idea && (
